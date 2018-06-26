@@ -1,1 +1,25 @@
-{}
+{
+  "name": "nyc-subway-status",
+  "version": "1.0.0",
+  "description": "Alexa skill for retrieving status of NYC subway lines",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "zip": "zip -r dist/nyc-subway-status-lambda.zip . -x *.git* -x *.cache* -q",
+    "deploy": "aws lambda update-function-code --function-name arn:aws:lambda:us-east-1:300519166185:function:NYCSubwayLineStatus --zip-file fileb://./dist/nyc-subway-status-lambda.zip --profile personal",
+    "pnp": "npm run zip && npm run deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomch3ng/nyc-subway-status.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomch3ng/nyc-subway-status/issues"
+  },
+  "homepage": "https://github.com/tomch3ng/nyc-subway-status#readme",
+  "dependencies": {
+    "alexa-sdk": "^1.0.14"
+  }
+}
